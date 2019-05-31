@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @brew.date %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @brew.name %>
+</p>
+
+<p><strong>Mash Gravity: <%=  link_to 'Add', edit_mash_g_path(@brew) if @brew.mash_gravity.nil?%></strong>
+  <%=  @brew.mash_gravity %> </p>
+
+<%= link_to 'Edit', edit_brew_path(@brew) %> |
+<%= link_to 'Back', brews_path %>

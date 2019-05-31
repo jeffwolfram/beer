@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Brews</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Mash Temp</th>
+      <th>Mash Time</th>
+      <th>Boil Time</th>
+      <th>Mash G</th>
+      <th>Pre Boil G</th>
+      <th>Pre Keg G</th>
+      <th>Final G</th>
+
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @brews.each do |brew| %>
+      <tr>
+        <td><%= brew.date %></td>
+        <td><%= brew.name %></td>
+        <td><%= brew.mash_temp %></td>
+        <td><%= brew.mash_time %></td>
+        <td><%= brew.boil_time %></td>
+        <td><%= brew.mash_gravity %></td>
+        <td><%= brew.pre_boil_gravity %></td>
+        <td><%= brew.pre_keg_gravity %></td>
+        <td><%= brew.final_gravity %></td>
+
+
+        <td><%= link_to 'Show', brew %></td>
+        <td><%= link_to 'Edit', edit_brew_path(brew) %></td>
+        <td><%= link_to 'Destroy', brew, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Brew', new_brew_path %>
