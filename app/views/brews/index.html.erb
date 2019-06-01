@@ -12,7 +12,7 @@
       <th>Boil Time</th>
       <th>Mash G</th>
       <th>Pre Boil G</th>
-      <th>Pre Keg G</th>
+      <th>Original G</th>
       <th>Final G</th>
 
 
@@ -22,8 +22,8 @@
   <tbody>
     <% @brews.each do |brew| %>
       <tr>
-        <td><%= brew.date %></td>
-        <td><%= brew.name %></td>
+        <td><%=  brew.date %></td>
+        <td><%= link_to brew.name, brew %></td>
         <td><%= brew.mash_temp %></td>
         <td><%= brew.mash_time %></td>
         <td><%= brew.boil_time %></td>
@@ -33,7 +33,7 @@
         <td><%= brew.final_gravity %></td>
 
 
-        <td><%= link_to 'Show', brew %></td>
+        <td><%= (  brew.final_gravity - brew.pre_keg_gravity) * 131.25 unless brew.pre_keg_gravity == nil || brew.final_gravity == nil %></td>
         <td><%= link_to 'Edit', edit_brew_path(brew) %></td>
         <td><%= link_to 'Destroy', brew, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

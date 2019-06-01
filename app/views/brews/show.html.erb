@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
 <p>
   <strong>Date:</strong>
   <%= @brew.date %>
@@ -13,5 +14,25 @@
 <p><strong>Mash Gravity: <%=  link_to 'Add', edit_mash_g_path(@brew) if @brew.mash_gravity.nil?%></strong>
   <%=  @brew.mash_gravity %> </p>
 
+<p><strong>Pre Boil Gravity: <%=  link_to 'Add', edit_pre_boil_g_path(@brew) if @brew.pre_boil_gravity.nil?%></strong>
+  <%=  @brew.pre_boil_gravity %> </p>
+
+<p><strong>Pre Keg Gravity: <%=  link_to 'Add', edit_pre_keg_g_path(@brew) if @brew.pre_keg_gravity.nil?%></strong>
+  <%=  @brew.pre_keg_gravity %> </p>
+
+<p><strong>Final Gravity: <%=  link_to 'Add', edit_final_g_path(@brew) if @brew.final_gravity.nil?%></strong>
+<%=  @brew.final_gravity %> </p>
+
+<p><strong>Mash Temp: <%=  link_to 'Add', edit_mash_temp_path(@brew) if @brew.mash_temp.nil?%></strong>
+<%=  @brew.mash_temp %> </p>
+
+<p><strong>Mash Time: <%=  link_to 'Add', edit_mash_time_path(@brew) if @brew.mash_time.nil?%></strong>
+<%=  @brew.mash_time %> </p>
+
+<p><strong>Boil_time: <%=  link_to 'Add', edit_boil_time_path(@brew) if @brew.boil_time.nil?%></strong>
+<%=  @brew.boil_time %> </p>
+
+
 <%= link_to 'Edit', edit_brew_path(@brew) %> |
 <%= link_to 'Back', brews_path %>
+</div>

@@ -25,6 +25,30 @@ class BrewsController < ApplicationController
 
   end
 
+  def edit_pre_boil_g
+    @brew = Brew.find(params[:id])
+  end
+
+  def edit_pre_keg_g
+    @brew = Brew.find(params[:id])
+  end
+
+  def edit_final_g
+    @brew = Brew.find(params[:id])
+  end
+
+  def edit_mash_temp
+    @brew = Brew.find(params[:id])
+  end
+
+  def edit_mash_time
+    @brew = Brew.find(params[:id])
+  end
+
+  def edit_boil_time
+    @brew = Brew.find(params[:id])
+    end
+
   # POST /brews
   # POST /brews.json
   def create
@@ -73,6 +97,6 @@ class BrewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brew_params
-      params.require(:brew).permit(:date, :name, :mash_gravity, :pre_boil_gravity, :pre_keg_gravity, :final_gravity, :notes)
+      params.require(:brew).permit(:date, :name, :mash_gravity, :mash_temp, :mash_time, :boil_time, :pre_boil_gravity, :pre_keg_gravity, :final_gravity, :notes)
     end
 end

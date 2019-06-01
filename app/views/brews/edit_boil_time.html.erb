@@ -1,0 +1,29 @@
+<h1>Editing Brew</h1>
+
+<%= form_with(model: @brew, local: true) do |form| %>
+    <% if @brew.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(brew.errors.count, "error") %> prohibited this brew from being saved:</h2>
+
+          <ul>
+            <% @brew.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+
+    <div class="field">
+      <%= form.label :boil_time %>
+      <%= form.text_field :boil_time %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>
+
+<%= link_to 'Show', @brew %> |
+<%= link_to 'Back', brews_path %>
