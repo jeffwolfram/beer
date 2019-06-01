@@ -1,38 +1,177 @@
-<p id="notice"><%= notice %></p>
-
-<div class="container">
-<p>
-  <strong>Date:</strong>
-  <%= @brew.date %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @brew.name %>
-</p>
-
-<p><strong>Mash Gravity: <%=  link_to 'Add', edit_mash_g_path(@brew) if @brew.mash_gravity.nil?%></strong>
-  <%=  @brew.mash_gravity %> </p>
-
-<p><strong>Pre Boil Gravity: <%=  link_to 'Add', edit_pre_boil_g_path(@brew) if @brew.pre_boil_gravity.nil?%></strong>
-  <%=  @brew.pre_boil_gravity %> </p>
-
-<p><strong>Pre Keg Gravity: <%=  link_to 'Add', edit_pre_keg_g_path(@brew) if @brew.pre_keg_gravity.nil?%></strong>
-  <%=  @brew.pre_keg_gravity %> </p>
-
-<p><strong>Final Gravity: <%=  link_to 'Add', edit_final_g_path(@brew) if @brew.final_gravity.nil?%></strong>
-<%=  @brew.final_gravity %> </p>
-
-<p><strong>Mash Temp: <%=  link_to 'Add', edit_mash_temp_path(@brew) if @brew.mash_temp.nil?%></strong>
-<%=  @brew.mash_temp %> </p>
-
-<p><strong>Mash Time: <%=  link_to 'Add', edit_mash_time_path(@brew) if @brew.mash_time.nil?%></strong>
-<%=  @brew.mash_time %> </p>
-
-<p><strong>Boil_time: <%=  link_to 'Add', edit_boil_time_path(@brew) if @brew.boil_time.nil?%></strong>
-<%=  @brew.boil_time %> </p>
 
 
-<%= link_to 'Edit', edit_brew_path(@brew) %> |
-<%= link_to 'Back', brews_path %>
+<div class="container-fluid">
+  <h1 class="text-center"><%= @brew.name %></h1>
+  <h3 class="text-center"><%= @brew.date.strftime("%m/%d/%Y")  %></h3>
+
+
+  <div class="row">
+
+
+
+
+
+    <div class="col-sm-3">
+    <div class="card text-white bg-secondary mb-3 ">
+      <div class="card-body">
+        <h5 class="card-title text-center">Mash Temp</h5>
+        <p class="card-text"> <% if @brew.mash_temp == nil %>
+              <%= form_with(model: @brew, local: true) do |form| %>
+                  <%= form.text_field :mash_temp, style: 'width:100%;' %><%= form.submit 'Add' %>
+              <% end %>
+          <% else %>
+            <h4 class="text-center"><%=  @brew.mash_temp %></h4>
+            <%=  link_to 'Edit', edit_mash_temp_path %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+    <div class="col-sm-3">
+      <div class="card text-white bg-secondary mb-3 ">
+        <div class="card-body">
+          <h5 class="card-title text-center">Mash Time</h5>
+          <p class="card-text"> <% if @brew.mash_time == nil %>
+                <%= form_with(model: @brew, local: true) do |form| %>
+                    <%= form.text_field :mash_time, style: 'width:100%;' %><%= form.submit 'Add' %>
+                <% end %>
+            <% else %>
+              <h4 class="text-center"><%=  @brew.mash_time %> Minutes</h4>
+              <%=  link_to 'Edit', edit_mash_time_path %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card text-white bg-secondary mb-3 ">
+        <div class="card-body">
+          <h5 class="card-title text-center">Mash Gravity</h5>
+          <p class="card-text"> <% if @brew.mash_gravity == nil %>
+                <%= form_with(model: @brew, local: true) do |form| %>
+                    <%= form.text_field :mash_gravity, style: 'width:100%;' %><%= form.submit 'Add' %>
+                <% end %>
+            <% else %>
+                <h4 class="text-center"><%=  @brew.mash_gravity %></h4>
+                <%=  link_to 'Edit', edit_mash_g_path %>
+            <% end %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card text-white bg-secondary mb-3 ">
+        <div class="card-body">
+          <h5 class="card-title text-center">Pre Boil Gravity</h5>
+          <p class="card-text"> <% if @brew.pre_boil_gravity == nil %>
+                <%= form_with(model: @brew, local: true) do |form| %>
+                    <%= form.text_field :pre_boil_gravity, style: 'width:100%;' %><%= form.submit 'Add' %>
+                <% end %>
+            <% else %>
+              <h4 class="text-center"><%=  @brew.pre_boil_gravity %></h4>
+              <%=  link_to 'Edit', edit_pre_boil_g_path %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card text-white bg-secondary mb-3 ">
+        <div class="card-body">
+          <h5 class="card-title text-center">Boil Time</h5>
+          <p class="card-text"> <% if @brew.boil_time == nil %>
+                <%= form_with(model: @brew, local: true) do |form| %>
+                    <%= form.text_field :boil_time, style: 'width:100%;' %><%= form.submit 'Add' %>
+                <% end %>
+            <% else %>
+              <h4 class="text-center"><%=  @brew.boil_time %> Minutes</h4>
+              <%=  link_to 'Edit', edit_boil_time_path %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card text-white bg-secondary mb-3 ">
+        <div class="card-body">
+          <h5 class="card-title text-center">Pre Keg Gravity</h5>
+          <p class="card-text"> <% if @brew.pre_keg_gravity == nil %>
+                <%= form_with(model: @brew, local: true) do |form| %>
+                    <%= form.text_field :pre_keg_gravity, style: 'width:100%;' %><%= form.submit 'Add' %>
+                <% end %>
+            <% else %>
+              <h4 class="text-center"><%=  @brew.pre_keg_gravity %></h4>
+              <%=  link_to 'Edit', edit_pre_keg_g_path %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+    <div class="card text-white bg-secondary mb-3 ">
+      <div class="card-body">
+        <h5 class="card-title text-center">Final Gravity</h5>
+        <p class="card-text"> <% if @brew.final_gravity == nil %>
+              <%= form_with(model: @brew, local: true) do |form| %>
+                  <%= form.text_field :final_gravity, style: 'width:100%;' %><%= form.submit 'Add' %>
+              <% end %>
+          <% else %>
+            <h4 class="text-center"><%=  @brew.final_gravity %></h4>
+            <%=  link_to 'Edit', edit_final_g_path %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+    <div class="col-sm-3">
+      <div class="card text-white bg-secondary mb-3 ">
+        <div class="card-body">
+          <h5 class="card-title text-center">Alcohol Percentage</h5>
+          <h4 class="card-text text-center">
+            <%= ((  @brew.final_gravity - @brew.pre_keg_gravity) * 131.25).abs.round(1) unless @brew.pre_keg_gravity == nil || @brew.final_gravity == nil %>
+              %
+          </h4>
+          <br>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    </div>
+  </div>
+  <!--***************************** end of row ********************************-->
+  <div class="row">
+    <div class="col-sm-6" style="margin:auto">
+      <div class="card text-white bg-secondary mb-3 ">
+        <div class="card-body">
+          <h5 class="card-title text-center">Final Gravity</h5>
+          <p class="card-text"> <% if @brew.notes == nil %>
+                <%= form_with(model: @brew, local: true) do |form| %>
+                    <%= form.text_area :notes, style: 'width:100%;' %>
+                    <br><%= form.submit 'Add' %>
+                <% end %>
+            <% else %>
+              <h4 class="text-center"><%=  @brew.notes %></h4>
+              <%=  link_to 'Edit', edit_notes_path %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  <
+
+
+
+
+
 </div>

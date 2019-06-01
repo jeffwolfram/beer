@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'brews/:id/edit_mash_temp' => 'brews#edit_mash_temp', as: :edit_mash_temp
   get 'brews/:id/edit_mash_time' => 'brews#edit_mash_time', as: :edit_mash_time
   get 'brews/:id/edit_boil_time' => 'brews#edit_boil_time', as: :edit_boil_time
+  get 'brews/:id/edit_notes' => 'brews#edit_notes', as: :edit_notes
   resources :ingredients
   devise_for :users
  root to: 'welcome#home'

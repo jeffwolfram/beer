@@ -25,6 +25,10 @@ class BrewsController < ApplicationController
 
   end
 
+  def edit_notes
+    @brew = Brew.find(params[:id])
+  end
+
   def edit_pre_boil_g
     @brew = Brew.find(params[:id])
   end

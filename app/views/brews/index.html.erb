@@ -33,7 +33,7 @@
         <td><%= brew.final_gravity %></td>
 
 
-        <td><%= (  brew.final_gravity - brew.pre_keg_gravity) * 131.25 unless brew.pre_keg_gravity == nil || brew.final_gravity == nil %></td>
+        <td><%= ((  brew.final_gravity - brew.pre_keg_gravity) * 131.25).abs.round(1) unless brew.pre_keg_gravity == nil || brew.final_gravity == nil %></td>
         <td><%= link_to 'Edit', edit_brew_path(brew) %></td>
         <td><%= link_to 'Destroy', brew, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
